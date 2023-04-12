@@ -5,7 +5,7 @@
 ### Two types
 
 1. Direct recursion - Function calling itself.
-2. Indirect recursion - first function calling second function and second calling first.
+2. Indirect recursion - In this recursion, there may be more than one functions and they are calling one another in a circular manner.
 
 ### Direct recursion - 4 types
 1. Tail recursion - If the recursive call is the last statement in the function then it’s known as Tail Recursion.
