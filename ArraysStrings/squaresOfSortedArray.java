@@ -14,7 +14,7 @@ class Solution {
 - Square the elements in the array ans sort the array.
  
 Time Complexity - o(nlogn)
-Space Complexity - o(1)
+Space Complexity - o(n)(sorting)
 
 Second Approach (Two pointer(one at positive and other at negative index) and extra space)
   
