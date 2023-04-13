@@ -1,5 +1,5 @@
 // Reverse the array
-First approach (using extra array)
+First approach (Extra space)
 
 class Solution {
     public void reverseString(char[] s) {
@@ -22,8 +22,34 @@ class Solution {
   
 Time complexity - o(n)
 Space complexity - o(n)
+
+Second approach (Recursion,in-place and o(n) stack space)
+    
+class Solution {
+    public void helper(int i,int j,char[] s){
+        if(i>=j){
+            return ;
+        }
+        char temp=s[i];
+        s[i]=s[j];
+        s[j]=temp;
+        helper(i+1,j-1,s);
+    }
+    public void reverseString(char[] s) {
+        int i=0;
+        int j=s.length-1;
+        helper(i,j,s);      
+    }
+}
+
+1. we use two pointers and pass in a recursive function.
+2. we swap the two indices and move the pointers close to each other 
+3. when the first pointers reaches the second pointer then return 
+    
+Time complexity - o(n)
+Space complexity - o(n) (Stack space)
   
-Second approach (using two pointer and in-place)
+Third approach (Two pointer and in-place)
   
 class Solution {
     public void reverseString(char[] s) {
