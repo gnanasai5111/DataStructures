@@ -81,7 +81,7 @@ class Solution {
                 if(nums[right]==0){
                     count++;
                 }
-                while(left<=right && count>k){
+                if(count>k){
                     max=Math.max(right-left,max);
                     if(nums[left]==0){
                         count--;
