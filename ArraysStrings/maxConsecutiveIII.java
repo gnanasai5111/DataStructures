@@ -34,3 +34,39 @@ class Solution {
 
 Time Complexity - o(n*n)
 Space Complexity -o(1)
+  
+Second approach(Sliding window)
+ 
+class Solution {
+    public int longestOnes(int[] nums, int k) {
+        int max=0;
+        int left=0;
+        int count=0;
+        for(int right=0;right<nums.length;right++){
+                if(nums[right]==0){
+                    count++;
+                }
+                while(left<=right && count>k){
+                    max=Math.max(right-left,max);
+                    if(nums[left]==0){
+                        count--;
+                    }
+                    left++;             
+                }
+       
+        }
+        if(count<=k){
+            max=Math.max(nums.length-left,max);
+        }
+        return max;
+        
+    }
+}
+
+1. Count the number of zeroes,if the zeros exceeds k find the length than move the left pointer till zeroes are less than the k.
+2. Repeat this process
+
+Time complexity - o(n)
+Space complexity - o(1)
+  
+
