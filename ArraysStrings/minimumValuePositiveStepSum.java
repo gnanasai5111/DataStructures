@@ -1,6 +1,6 @@
 Minimum Value to Get Positive Step by Step Sum
 
-First approach()
+First approach(Brute force)
 
 class Solution {
     public int minStartValue(int[] nums) {
