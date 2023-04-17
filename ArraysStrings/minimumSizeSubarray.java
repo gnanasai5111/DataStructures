@@ -33,7 +33,36 @@ class Solution {
 Time complexity - o(n*n)
 Space complexity -o(1)
   
-Second approach(Sliding window)
+Second approach(Cumulative sum)
+  
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        int min=nums.length+1;
+        int sum[]=new int[nums.length];
+        sum[0]=nums[0];
+        for(int i=1;i<nums.length;i++){
+            sum[i]=sum[i-1]+nums[i];
+        }
+        for(int i=0;i<nums.length;i++){
+             for (int j = i; j < nums.length; j++) {
+                 int s = sum[j] - sum[i] + nums[i];
+                 if (s >= target) {
+                     min = Math.min(min, (j - i + 1));
+                     break; 
+                 }
+             }
+        }
+       
+        return min==nums.length+1?0:min;    
+    }
+}
+
+1. Find the cumulative sum/prefix sum and calculate the sum of sub array at each index and find the min length when sum is greater than or equal to target.
+  
+Time complexity - o(n*n)
+Space complexity - o(n)
+  
+Third approach(Sliding window)
   
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
