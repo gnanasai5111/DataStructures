@@ -46,7 +46,7 @@ class Solution {
 1. Add charceter count to counter array.If the count is 0 of any alphabet return false else return true;
 
 Time complexity - o(n)
-Space complexity -o(n)
+Space complexity -o(1)
 
 Third approach(Set)
   
