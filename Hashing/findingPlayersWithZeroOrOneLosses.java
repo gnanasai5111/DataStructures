@@ -125,3 +125,81 @@ class Solution {
   
 Time complexity - o(nlogn)
 Space complexity - o(n)
+  
+Third approach(Another hashing)
+  
+class Solution {
+    public List<List<Integer>> findWinners(int[][] matches) {
+        List<List<Integer>> res=new ArrayList<>();   
+         HashMap<Integer,Integer> h1=new HashMap<>();
+        for(int i=0;i<matches.length;i++){
+            int notLost=matches[i][0];
+            int oneLost=matches[i][1];
+            h1.put(notLost,h1.getOrDefault(notLost,0));
+            h1.put(oneLost,h1.getOrDefault(oneLost,0)-1);  
+        }
+        ArrayList<Integer> inner1=new ArrayList<>();
+        ArrayList<Integer> inner2=new ArrayList<>();
+        for(Integer i:h1.keySet()){
+            if(h1.get(i)==0){
+                inner1.add(i);
+            }
+            if(h1.get(i)==-1){
+                inner2.add(i);
+            }
+        }
+        Collections.sort(inner1);
+        Collections.sort(inner2);
+        res.add(inner1);
+        res.add(inner2);
+        return res;
+    }
+}
+
+1. In hashmap, find the count of wins and losses .
+  
+Time complexity - o(nlogn)
+Space complexity - o(n)
+  
+Fourth approach(Counter)
+  
+class Solution {
+    public List<List<Integer>> findWinners(int[][] matches) {
+        List<List<Integer>> res=new ArrayList<>();   
+        int count[]=new int[1000001];
+        for(int i=0;i<matches.length;i++){
+            int w=matches[i][0];
+            int l=matches[i][1];
+            if(count[w]>=0){
+              count[w]++;
+            }
+            if(count[l]>0){
+               count[l]=-1; 
+            }
+            else{
+                count[l]--;
+            }
+        }
+        ArrayList<Integer> inner1=new ArrayList<>();
+        ArrayList<Integer> inner2=new ArrayList<>();
+        for(int i=0;i<count.length;i++){
+            if(count[i]>=1){
+                inner1.add(i);
+            }
+            else if(count[i]==-1){
+                inner2.add(i);
+            }
+        }
+        Collections.sort(inner1);
+        Collections.sort(inner2);
+        res.add(inner1);
+        res.add(inner2);
+        return res;
+    }
+}
+
+
+1. use a counter to store wins and looses
+  
+Time complexity - o(n+k)
+Space complexity - o(k)
