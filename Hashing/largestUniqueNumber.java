@@ -26,8 +26,32 @@ class Solution {
 
 Time complexity -o(n*n)
 Space complexity - o(1)
+    
+Second approach(Sorting)
+
+class Solution {
+    public int largestUniqueNumber(int[] nums) {
+      Arrays.sort(nums);
+      for(int i=nums.length-1;i>=0;i--){
+        if(i==0 || nums[i]!=nums[i-1]){
+          return nums[i];
+        }
+        while(i>0 && nums[i]==nums[i-1]){
+          i--;
+        }
+      }
+      return -1; 
+    }
+}
+
+1.Sort the array.And Loop through the array from reverse and return the non duplicated value.
+
+Time complexity -o(n*logn)
+Space complexity - o(1)
+
+
   
-Second approach(Hashing)
+Third approach(Hashing)
 
 class Solution {
     public int largestUniqueNumber(int[] nums) {
