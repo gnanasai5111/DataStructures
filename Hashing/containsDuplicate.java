@@ -1,3 +1,5 @@
+First approach(Brute force)
+
 class Solution {
     public boolean containsDuplicate(int[] nums) {
        
@@ -16,8 +18,27 @@ class Solution {
   
 Time complexity - o(n*n)
 Space complexity - o(1)
+    
+Second approach(sorting)
+    
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+       Arrays.sort(nums);
+        for(int i=1;i<nums.length;i++){
+                if(nums[i]==nums[i-1]){
+                    return true;
+                }
+        }
+        return false;     
+    }
+}
 
-Second approach(hashing)
+1. Sort the array and traverse and check if the prev element is equal to current element.If it is return true.
+  
+Time complexity - o(nlogn)
+Space complexity - o(1)
+
+Third approach(hashing)
   
 class Solution {
     public boolean containsDuplicate(int[] nums) {
