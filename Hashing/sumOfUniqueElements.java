@@ -1,4 +1,33 @@
-Second approach(Extra space)
+First approach(Sort)
+   
+class Solution {
+    public int sumOfUnique(int[] nums) {
+       Arrays.sort(nums);
+        int sum=0,prev=0;
+        for(int i=0;i<nums.length-1;i++){
+            if(prev==nums[i]){
+                continue;
+            }
+            if(nums[i]!=nums[i+1]){
+                sum=sum+nums[i];
+            } 
+            else{
+                prev=nums[i];
+            }
+        }
+        if(nums[nums.length-1]!=prev){
+            sum=sum+nums[nums.length-1];
+        }
+        return sum;
+    }
+}
+
+1. Sort the array and check if current element is equal to next element or not .if they are not equal add it to sum.
+
+Time complexity - o(NlogN)
+Space complexity - o(1)
+
+Second approach(counting values as indexes)
    
 class Solution {
     public int sumOfUnique(int[] nums) {
