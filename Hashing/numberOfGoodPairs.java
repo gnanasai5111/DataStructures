@@ -21,7 +21,55 @@ class Solution {
 Time complexity - o(N*N)
 Space complexity - o(1)
   
-Second approach(Hashing)
+Second approach(Sorting)
+  
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+        int count=0;
+        Arrays.sort(nums);
+        int back=0;
+        for(int i=1;i<nums.length;i++){
+            if(nums[i]==nums[i-1]){
+                back++;
+                count=count+back;
+            }
+            else{
+                back=0;
+            }
+        }
+        return count;
+        
+    }
+}
+
+1. sort the array.If the elements are similar increment pairs and add to count .
+  
+Third approach(Counter)
+  
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+        int count=0;
+        int res[]=new int[101];
+        for(int i=0;i<nums.length;i++){
+           res[nums[i]]++;
+        }
+        for(int i=0;i<res.length;i++){
+            if(res[i]>1){
+                int val=res[i]-1;
+                count=count+(val*(val+1))/2;                        
+            }
+        }
+        return count;
+        
+    }
+}
+
+1. Store the count of each number.
+2. Find the number of distinct pairs formed by repeated number
+
+Time complexity - o(N)
+Space compexity - o(100) -o(1)
+Fourth approach(Hashing)
   
 class Solution {
     public int numIdenticalPairs(int[] nums) {
