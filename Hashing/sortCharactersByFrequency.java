@@ -1,3 +1,72 @@
+First approach(Arrays and sorting)
+ 
+ class Solution {
+    public String frequencySort(String s) {
+        char ch[]=s.toCharArray();
+        Arrays.sort(ch);
+        ArrayList<String> res=new ArrayList<>();
+        String out="";
+        String appendChar=""+ch[0];
+        for(int i=1;i<ch.length;i++){
+            if(ch[i]!=ch[i-1]){
+                res.add(appendChar);
+                appendChar=""+ch[i];
+            }
+            else{
+                appendChar+=ch[i];
+            }        
+        }
+         res.add(appendChar);
+        Collections.sort(res,(a,b)->b.length()-a.length());
+        for(int i=0;i<res.size();i++){
+           for(int j=0;j<res.get(i).length();j++){
+               out=out+res.get(i).charAt(j);
+           }
+        }
+
+        return out;      
+    }
+}
+
+1. Sort the array.Make the same elements as string and add to arrayList.
+2. Sort the  list based on length of string.
+3. Append it to the output by traversing through list.
+ 
+Time complexity - o(NlogN)
+Space complexity - o(N)
+
+Second approach(Hashing and sorting)
+ 
+class Solution {
+    public String frequencySort(String s) {
+        HashMap<Character,Integer> map=new HashMap<>();
+        String out="";
+        for(int i=0;i<s.length();i++){
+            map.put(s.charAt(i),map.getOrDefault(s.charAt(i),0)+1);
+        }
+        List<Character> res=new ArrayList<>();
+        for(Character i:map.keySet()){
+            res.add(i);
+        }
+        Collections.sort(res,(a,b)->map.get(b)-map.get(a));
+        for(int i=0;i<res.size();i++){
+            int count=map.get(res.get(i));
+            while(count>0){
+                out=out+res.get(i);
+                count--;
+            }
+        }
+
+        return out;      
+    }
+}
+
+1. Store the frequencies of elements in hashmap.
+2. Put the elements to list based on frequencies of elements by sorting.And append it to string .
+
+Time complexity - o(NlogN)
+Space complexity  o(N) 
+
 Third approach(Hashing and Priority Queue)
  
 class Solution {
