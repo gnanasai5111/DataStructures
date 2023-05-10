@@ -77,3 +77,34 @@ class Solution {
   
 Time complexity - o(N)
 Space complexity - o(N)
+
+Third approach(HASHING)
+  
+class Solution {
+    public boolean wordPattern(String pattern, String s) {
+         String[] p2 = s.split(" ");
+        if(p2.length!=pattern.length()){
+            return false;
+        }  
+        HashMap <Character, String> map_char = new HashMap();
+        HashMap <String, Character> map_word = new HashMap();
+        for(Integer i=0;i<p2.length;i++){
+            char res=pattern.charAt(i);
+            String w=p2[i];     
+            map_char.put(res,w);         
+            map_word.put(w,res);               
+        }
+         for(int i=0;i<p2.length;i++){
+            char res=pattern.charAt(i);
+            String w=p2[i];  
+            if(!map_char.get(res).equals(w) || !map_word.get(w).equals(res)){
+               return false;
+           }
+        }
+        return true;
+        
+    }
+}
+
+1. Convert the s string into an array of strings whenver a space encounters.
+2. Use hasmaps to map the character to word and word to characater and check if the value at current index equal to value at both maps .
