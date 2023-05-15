@@ -142,3 +142,31 @@ element count is equal to 1.
 
 Time complexity - o(N)
 Space complexity - o(N)
+    
+Sixth approach(Hashmap and prefix sum)
+    
+class Solution {
+    public int maximumUniqueSubarray(int[] nums) {
+        int max=0,left=0;
+        HashMap<Integer,Integer> map=new HashMap<>();
+        int pre[]=new int[nums.length+1];
+        for(int i=0;i<nums.length;i++){
+            pre[i+1]=pre[i]+nums[i];
+        }
+        for(int i=0;i<nums.length;i++){
+            if(map.containsKey(nums[i])){
+                 left = Math.max(left, map.get(nums[i])+1);
+            } 
+            map.put(nums[i],i);
+            max=Math.max(max,pre[i+1]-pre[left]); 
+        }
+        return max;
+    }
+}
+
+1. Store the prefix sum in array.
+2. Store the last index of elemnt in hashmap.If the element already exists find which index is greater (left or last index of the element) and make it as left
+2. Find the max betwen current index and last occured index of an element
+
+Time complexity - o(N)
+Space complexity - o(N)
