@@ -170,3 +170,29 @@ class Solution {
 
 Time complexity - o(N)
 Space complexity - o(N)
+    
+Seventh approach(count array with prefix sum)
+    
+class Solution {
+    public int maximumUniqueSubarray(int[] nums) {
+        int max=0,left=0;
+       int res[]=new int[10001];
+        int pre[]=new int[nums.length+1];
+        for(int i=0;i<nums.length;i++){
+            pre[i+1]=pre[i]+nums[i];
+        }
+        Arrays.fill(res, -1);
+        for(int i=0;i<nums.length;i++){
+            if(res[nums[i]]!=-1){
+                 left = Math.max(left, res[nums[i]]+1);
+            } 
+            res[nums[i]]=i;
+            max=Math.max(max,pre[i+1]-pre[left]); 
+        }
+        return max;
+    }
+}
+
+1. Store the prefix sum in array.Same as last approach but we use count array instead of hashmap.
+2. Store the last index of elemnt in count array.If the element already exists find which index is greater (left or last index of the element) and make it as left.
+2. Find the max betwen current index and last occured index of an element
