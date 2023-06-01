@@ -14,3 +14,9 @@
 ## Drawbacks
 - Random access is not allowed
 - More overhead then arrays because every element needs to have extra storage for the pointers.
+
+### Types of linked list
+1. Single linkedList - Traverse in forward direction.
+2. Double linkedList - Traverse in forward and backward directions.
+3. Circular Linked List - Traverse in forward direction and Last node points to the first node.
+4. Double circular LinkedList - Traverse in both directions and last node next points to first node and first node prev points to last nod.
