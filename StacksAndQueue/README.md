@@ -20,7 +20,7 @@ stack.pop(); // 3
 stack.pop(); // 2
 ```
 
-// Check if empty
+### Check if empty
 
 ```
 stack.empty(); // false
