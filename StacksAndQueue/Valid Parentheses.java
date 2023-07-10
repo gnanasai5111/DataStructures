@@ -55,3 +55,36 @@ class Solution {
 
 Time complexity - o(N)
 Space complexity - o(N)
+
+Second approach(Stack and hashing)
+
+class Solution {
+    public boolean isValid(String s) {
+        HashMap<Character,Character> map=new HashMap<>();
+        map.put('(', ')');
+        map.put('[', ']');
+        map.put('{', '}');
+        Stack<Character> stack=new Stack<>();
+        for(int i=0;i<s.length();i++){
+            char v=s.charAt(i);
+            if(map.containsKey(v)){
+                stack.add(v);
+            }
+            else{
+                if(stack.empty()){
+                    return false;
+                }
+                if(map.get(stack.pop())!=v){
+                    return false;
+                }
+            }
+            
+        }
+        return stack.empty();
+    }
+}
+
+1. Similar approach like first one,the only difference is we use hashmap for mapping brackets,so its easier for access.
+
+Time complexity - o(N)
+Space complexity - o(N)
