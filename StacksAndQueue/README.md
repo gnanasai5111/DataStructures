@@ -143,3 +143,62 @@ class StackClass {
     }
 }
 ```
+
+### Linkedlist
+
+```
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class StackClass {
+     static class Node<G>{
+         G data;
+         Node next;
+         Node(G data){
+             this.data=data;
+             next=null;
+         }
+     }
+     static class Stack<G>{
+         Node<G> head;
+         public void push(G data){
+             Node<G> newNode=new Node(data);
+             if(head==null){
+               head=newNode;
+             }
+             else{
+                newNode.next=head;
+                head=newNode;
+             }
+         }
+         public G pop(){
+             if(isEmpty()){
+                return null;
+             }
+             G val=head.data;
+             head=head.next;
+             return val;
+         }
+         public boolean isEmpty(){
+             return head==null;
+         }
+         public G peek(){
+             if(isEmpty()){
+                return null;
+             }
+             return head.data;
+         }
+     }
+    public static void main(String[] args) {
+        Stack<String> s=new Stack<>();
+        s.push("india");
+        s.push("UK");
+        s.push("canada");
+        while(!s.isEmpty()){
+            System.out.println(s.pop());
+        }
+        s.push("Australia");
+        System.out.println(s.peek());
+    }
+}
+```
