@@ -488,3 +488,8 @@ class QueueCode {
 }
 ```
 
+### Monotonic stack
+
+- Its simply a stack where the elements are always in the sorted order.
+- Monotonic decreasing means that the stack will always be sorted in descending order.
+- Monotonic Increasing means that the stack will always be sorted in increasing order.
