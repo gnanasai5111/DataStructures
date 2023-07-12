@@ -26,3 +26,31 @@ class Solution {
 
 Time complexity - o(N)
 Space co plexity - o(N)
+
+Second approach(Monotonic Stack)
+
+class Solution {
+    public int[] dailyTemperatures(int[] temperatures) {
+        int ans[]=new int[temperatures.length];
+        Stack<Integer> s=new Stack();
+        for(int i=0;i<temperatures.length;i++){
+            if(s.empty()){
+                s.push(i);
+            }
+            else{
+                while(!s.empty() && temperatures[i]>temperatures[s.peek()]){
+                    int val=s.pop();
+                    ans[val]=i-val;
+                }
+                s.push(i);
+            }    
+        }
+        return ans;
+    }
+}
+
+1. If stack is empty,push element to stack
+2. Else check is current elemnt is graeter than the top of the stack,if yes pop the element and repeat the process
+
+Time complexity - o(N)
+Space complexity - o(N)
