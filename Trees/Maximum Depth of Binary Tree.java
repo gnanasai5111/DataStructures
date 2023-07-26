@@ -54,3 +54,48 @@ class Solution {
 
 Time complexity - o(N)
 Space complexity - o(N)
+
+3. Third approach(Iterative approach)
+
+class Solution {
+    class Pair{
+        TreeNode node;
+        int val;
+        public Pair(TreeNode node,int val){
+            this.val=val;
+            this.node=node;
+        }
+    }
+    public int maxDepth(TreeNode root) {
+       if(root==null){
+           return 0;
+       }
+       Stack<Pair> s=new Stack<>();
+       s.push(new Pair(root,1));
+       int max=0;
+       while(!s.isEmpty()){
+           Pair element=s.pop();
+           TreeNode node=element.node;
+           int val=element.val;
+           max=Math.max(val,max);
+           if(node.left!=null){
+               s.push(new Pair(node.left,val+1));
+           }
+           if(node.right!=null){
+               s.push(new Pair(node.right,val+1));
+           }
+       }
+       return max;
+        
+    }
+    
+}
+
+1. Use a stack and push the root element also add one as a length.
+2. Next check if the root has left and right child and push them into stack and add +1 to the length from thr root.
+3. Pop the elements from the stack and find the max.
+
+Time complexity - o(N)
+Space complexity - o(N)
+
+    
