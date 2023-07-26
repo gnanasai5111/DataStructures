@@ -47,7 +47,7 @@ class TreeNode {
 -  DFS chooses a branch and goes as far down as possible. Once it fully explores the branch, it backtracks until it finds another unexplored branch
 
 ```
-  PreOrder-(Root -left -Right)
+  PreOrder(Root -left -Right)
   PostOder(Left - Right - Root)
   InOrder(Left - Root - Right)
 ```
