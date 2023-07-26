@@ -46,6 +46,8 @@ class TreeNode {
 - You can think of the paths of a binary tree as branches growing from the root.
 -  DFS chooses a branch and goes as far down as possible. Once it fully explores the branch, it backtracks until it finds another unexplored branch
 
+ https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/707/traversals-trees-graphs/Figures/DSA/Chapter_5/25_1.png
+
 ```
   PreOrder(Root -left -Right)
   PostOder(Left - Right - Root)
