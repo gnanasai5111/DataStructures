@@ -5,5 +5,5 @@
 
   Node types
 
-  *Root* - Top most node in the heirarchy is called the root node.
+  **Root** - Top most node in the heirarchy is called the root node.
   
