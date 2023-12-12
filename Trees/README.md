@@ -37,7 +37,7 @@ class TreeNode {
 ### Tree Traversals
 
 - Depth First Search Traversal(DFS)(DFS Traversal can be done in 3 ways - Inorder,Preorder,Postorder)
-- Breadth First Search Traversal(BFS)
+- Breadth First Search Traversal(BFS)(level wise visiting)
 
 ### DFS
 
@@ -54,3 +54,11 @@ class TreeNode {
   PostOder(Left - Right - Root) - (3641520)
   InOrder(Left - Root - Right) - (3146025)
 ```
+
+### Types of Binary Tree
+
+1. Full Binary Tree - every node has either 0 or 2 children
+2. Complete Binary Tree - All levels are completely filled except the last level.The last level has all nodes to as left as possible.
+3. Perfect Binary Tree - All leaf nodes are at same level.
+4. Balanced Binary Tree - height of the tree should be max of o(logn) where n is number of nodes.
+5. Degenerate Binary Tree - A degenerate tree is a binary tree in data structure in which each parent node has only one child node associated with it. Such a tree will behave in the manner of linked list data structure
