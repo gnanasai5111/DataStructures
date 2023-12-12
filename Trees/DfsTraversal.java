@@ -1,7 +1,7 @@
 ### Preorder Traversal (Root,left,right)
-
-First approach(Recursion)
-
+### Inorder Traversal (left,Root,right)
+### Postorder Traversal (left,right,Root)
+    
 import java.util.*;
 
 class Node {
@@ -17,7 +17,7 @@ class Node {
     }
 }
 
-public class PreOrder {
+public class Traversal {
     static void preOrderTrav(Node curr, ArrayList < Integer > preOrder) {
         if (curr == null)
             return;
@@ -25,6 +25,22 @@ public class PreOrder {
         preOrder.add(curr.data);
         preOrderTrav(curr.left, preOrder);
         preOrderTrav(curr.right, preOrder);
+    }
+    static void inOrderTrav(Node curr, ArrayList < Integer > inOrder) {
+        if (curr == null)
+            return;
+
+        inOrderTrav(curr.left, inOrder);
+        inOrder.add(curr.data);
+        inOrderTrav(curr.right, inOrder);
+    }
+    static void postOrderTrav(Node curr, ArrayList < Integer > postOrder) {
+        if (curr == null)
+            return;
+
+        postOrderTrav(curr.left, postOrder);
+        postOrderTrav(curr.right, postOrder);
+        postOrder.add(curr.data);
     }
 
     public static void main(String args[]) {
@@ -42,10 +58,22 @@ public class PreOrder {
 
         ArrayList < Integer > preOrder = new ArrayList < > ();
         preOrderTrav(root, preOrder);
+        ArrayList < Integer > inOrder = new ArrayList < > ();
+        preOrderTrav(root, inOrder);
+        ArrayList < Integer > postOrder = new ArrayList < > ();
+        preOrderTrav(root, postOrder);
 
         System.out.print("The preOrder Traversal is : ");
         for (int i = 0; i < preOrder.size(); i++) {
             System.out.print(preOrder.get(i) + " ");
+        }
+        System.out.print("The inOrder Traversal is : ");
+        for (int i = 0; i < inOrder.size(); i++) {
+            System.out.print(inOrder.get(i) + " ");
+        }
+        System.out.print("The postOrder Traversal is : ");
+        for (int i = 0; i < postOrder.size(); i++) {
+            System.out.print(postOrder.get(i) + " ");
         }
 
     }
