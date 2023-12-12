@@ -2,6 +2,8 @@
 ### Inorder Traversal (left,Root,right)
 ### Postorder Traversal (left,right,Root)
     
+
+    
 import java.util.*;
 
 class Node {
@@ -12,12 +14,9 @@ class Node {
         left = null;
         right = null;
     }
-    Node() {
-
-    }
 }
 
-public class Traversal {
+ class Main {
     static void preOrderTrav(Node curr, ArrayList < Integer > preOrder) {
         if (curr == null)
             return;
@@ -59,9 +58,9 @@ public class Traversal {
         ArrayList < Integer > preOrder = new ArrayList < > ();
         preOrderTrav(root, preOrder);
         ArrayList < Integer > inOrder = new ArrayList < > ();
-        preOrderTrav(root, inOrder);
+        inOrderTrav(root, inOrder);
         ArrayList < Integer > postOrder = new ArrayList < > ();
-        preOrderTrav(root, postOrder);
+        postOrderTrav(root, postOrder);
 
         System.out.print("The preOrder Traversal is : ");
         for (int i = 0; i < preOrder.size(); i++) {
@@ -78,6 +77,9 @@ public class Traversal {
 
     }
 }
+
+
+
 
 
 Time complexity - o(N)
